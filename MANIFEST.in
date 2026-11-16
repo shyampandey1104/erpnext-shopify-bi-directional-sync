@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include sync_engine *.css
+recursive-include sync_engine *.csv
+recursive-include sync_engine *.html
+recursive-include sync_engine *.ico
+recursive-include sync_engine *.js
+recursive-include sync_engine *.json
+recursive-include sync_engine *.md
+recursive-include sync_engine *.png
+recursive-include sync_engine *.py
+recursive-include sync_engine *.svg
+recursive-include sync_engine *.txt
+recursive-exclude sync_engine *.pyc
