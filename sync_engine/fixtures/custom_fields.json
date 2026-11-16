@@ -1,0 +1,9 @@
+[
+ {
+  "dt": "Erpnext Shopify Bi Directional Sync Entry",
+  "fieldname": "custom_audit_verified",
+  "fieldtype": "Check",
+  "insert_after": "status",
+  "label": "Audit Verified"
+ }
+]
