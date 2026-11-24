@@ -4,7 +4,7 @@
 app_name = "sync_engine"
 app_title = "Erpnext Shopify Bi Directional Sync"
 app_publisher = "Shyamkumar Pandey"
-app_description = "Erpnext Shopify Bi Directional Sync for Frappe and ERPNext"
+app_description = "Erpnext Shopify Bi Directional Sync - Enterprise Multi-DocType Solution for Frappe & ERPNext"
 app_email = "shyampandey1104@gmail.com"
 app_license = "MIT"
 
@@ -16,16 +16,22 @@ app_include_js = "/assets/sync_engine/js/sync_engine.bundle.js"
 # Document Events
 # ---------------
 doc_events = {
-    "DocType Event": {
-        "on_submit": "sync_engine.engine.on_document_submit",
-        "on_cancel": "sync_engine.engine.on_document_cancel"
+    "Erpnext Shopify Bi Directional Sync Entry": {
+        "validate": "sync_engine.services.validator.EnterpriseValidationEngine.validate_compliance_rules",
+        "on_submit": "sync_engine.services.integration_service.EnterpriseIntegrationService.verify_remote_status"
     }
 }
 
-# Scheduled Tasks
-# ---------------
+# Scheduled Background Tasks
+# --------------------------
 scheduler_events = {
+    "hourly": [
+        "sync_engine.tasks.hourly_sync"
+    ],
     "daily": [
-        "sync_engine.engine.daily_scheduled_sync"
+        "sync_engine.tasks.daily_reconciliation"
+    ],
+    "weekly": [
+        "sync_engine.tasks.weekly_digest"
     ]
 }
